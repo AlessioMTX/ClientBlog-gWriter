@@ -6,5 +6,5 @@ img_DATA= \
 	gwb_about.png \
 	gwb_logo_original.png \
 	setting.png \
-	star.png \
+	star.png 
 

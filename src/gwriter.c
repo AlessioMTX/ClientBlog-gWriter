@@ -18,11 +18,11 @@ GdkPixbuf* import_img(char* filename)
 
 void windows_about()
 {
-	GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file("../img/gwb_about.png", NULL);
+	GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file("/usr/share/icons/gwriterblog/gwb_about.png", NULL);
 	GtkWidget *dialog = gtk_about_dialog_new();
 	GError *error = NULL;
 	
-	gtk_window_set_icon_from_file (GTK_WINDOW(dialog), "../img/favicon.png", &error);
+	gtk_window_set_icon_from_file (GTK_WINDOW(dialog), "/usr/share/icons/gwriterblog/favicon.png", &error);
 	
 	gtk_about_dialog_set_name(GTK_ABOUT_DIALOG(dialog), "gWriter Blog");
 	gtk_about_dialog_set_version(GTK_ABOUT_DIALOG(dialog), ""); 
@@ -64,7 +64,7 @@ void windows_adduser()
 	gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
 	
 	// Dichiaro finestra: favicon
-	gtk_window_set_icon_from_file (GTK_WINDOW(window), "../img/favicon.png", &error);
+	gtk_window_set_icon_from_file (GTK_WINDOW(window), "/usr/share/icons/gwriterblog/favicon.png", &error);
 
 	// Dichiaro autenticazione
 	 table = gtk_table_new (11, 10, TRUE);
@@ -149,7 +149,7 @@ void windows_setting()
 	gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
 	
 
-	gtk_window_set_icon_from_file (GTK_WINDOW(window), "../img/favicon.png", &error);
+	gtk_window_set_icon_from_file (GTK_WINDOW(window), "/usr/share/icons/gwriterblog/favicon.png", &error);
 	
 	notebook = gtk_notebook_new ();
 	gtk_notebook_set_tab_pos (GTK_NOTEBOOK (notebook), GTK_POS_BOTTOM);
@@ -243,7 +243,7 @@ int main(int argc, char *argv[])
 	gtk_container_set_border_width (GTK_CONTAINER (window), 0);
 	gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
 	
-	gtk_window_set_icon_from_file (GTK_WINDOW(window), "../img/favicon.png", &error);
+	gtk_window_set_icon_from_file (GTK_WINDOW(window), "/usr/share/icons/gwriterblog/favicon.png", &error);
 	
 	g_signal_connect (G_OBJECT (window), "delete_event",
 					  G_CALLBACK (gtk_main_quit), NULL);
@@ -257,21 +257,21 @@ int main(int argc, char *argv[])
 	 * gconftool-2 --type boolean --set /desktop/gnome/interface/menus_have_icons true
 	 *  */
 	file_menu_items = gtk_image_menu_item_new_with_label("New Blog");   
-    icon_menu = import_img("../img/add_user.png");
+    icon_menu = import_img("/usr/share/icons/gwriterblog/add_user.png");
 	menuImage = gtk_image_new_from_pixbuf (icon_menu);
 	gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (file_menu_items), menuImage);
 	g_signal_connect (G_OBJECT (file_menu_items), "activate", G_CALLBACK (windows_adduser), NULL);
     gtk_menu_append(GTK_MENU (file_menu_obj), file_menu_items);
     
     file_menu_items = gtk_image_menu_item_new_with_label("Setting");   
-    icon_menu = import_img("../img/setting.png");
+    icon_menu = import_img("/usr/share/icons/gwriterblog/setting.png");
 	menuImage = gtk_image_new_from_pixbuf (icon_menu);
 	gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (file_menu_items), menuImage);
 	g_signal_connect (G_OBJECT (file_menu_items), "activate", G_CALLBACK (windows_setting), NULL);
     gtk_menu_append(GTK_MENU (file_menu_obj), file_menu_items);
     
     file_menu_items = gtk_image_menu_item_new_with_label("Exit");
-    icon_menu = import_img("../img/close.png");
+    icon_menu = import_img("/usr/share/icons/gwriterblog/close.png");
 	menuImage = gtk_image_new_from_pixbuf (icon_menu);
 	gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (file_menu_items), menuImage);
 	g_signal_connect (G_OBJECT (file_menu_items), "activate", G_CALLBACK (gtk_main_quit), NULL);
@@ -282,7 +282,7 @@ int main(int argc, char *argv[])
     
 
     aiuto_menu_items = gtk_image_menu_item_new_with_label("Information");
-    icon_menu = import_img("../img/star.png");
+    icon_menu = import_img("/usr/share/icons/gwriterblog/star.png");
 	menuImage = gtk_image_new_from_pixbuf (icon_menu);
 	gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (aiuto_menu_items), menuImage);
 	g_signal_connect (G_OBJECT (aiuto_menu_items), "activate", G_CALLBACK (windows_about), NULL);

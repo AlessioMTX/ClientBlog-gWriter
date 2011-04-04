@@ -26,7 +26,7 @@ void windows_about()
 	
 	gtk_about_dialog_set_name(GTK_ABOUT_DIALOG(dialog), "gWriter Blog");
 	gtk_about_dialog_set_version(GTK_ABOUT_DIALOG(dialog), ""); 
-	gtk_about_dialog_set_copyright(GTK_ABOUT_DIALOG(dialog), "(c) PTKDev");
+	gtk_about_dialog_set_copyright(GTK_ABOUT_DIALOG(dialog), "(c) PTKDev, Gaudo and RoxShannon");
 	gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(dialog), "Basato su librerie GTK e semplicità!\n\nVersion: 0.1.1");
 	gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(dialog), "http://www.gwriterblog.org/");
 	

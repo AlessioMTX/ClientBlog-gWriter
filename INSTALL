@@ -18,7 +18,7 @@ $ pacman -S base-devel
  * Compile (from Shell)
  */ 
 
-$ gcc -Wall -o gwriter gwriter.c `pkg-config --cflags --libs gtk+-2.0`
+$ gcc -Wall -o gwriter gwriter.c credits.c connect.c setting.c `pkg-config --cflags --libs gtk+-2.0`
 
 
 
@@ -28,7 +28,7 @@ $ gcc -Wall -o gwriter gwriter.c `pkg-config --cflags --libs gtk+-2.0`
 
 1) Choose more build actions
 2) Set build menu commands
-3) gcc -Wall -o "%e" "%f" `pkg-config --cflags --libs gtk+-2.0`
+3) gcc -Wall -o "%e" "%f" credits.c connect.c setting.c `pkg-config --cflags --libs gtk+-2.0`
 
 
 /**

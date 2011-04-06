@@ -21,15 +21,5 @@
 *		WebSite: http://www.gwriterblog.org
 */
 
-#include <gtk/gtk.h>
-#include "include/gwriter.h"
-
 void
-switch_page (GtkButton* button, GtkNotebook* notebook)
-{
-  if (gtk_notebook_get_current_page (notebook) == 0) {
-    gtk_notebook_set_current_page (notebook, 1);
-  } else {
-    gtk_notebook_set_current_page (notebook, 0);
-  }
-}
+switch_page (GtkButton* button, GtkNotebook* notebook);

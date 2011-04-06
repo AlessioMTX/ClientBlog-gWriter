@@ -22,14 +22,26 @@
 */
 
 #include <gtk/gtk.h>
-#include "include/gwriter.h"
 
-void
-switch_page (GtkButton* button, GtkNotebook* notebook)
+#include "include/gwriter_mainWindow.h"
+
+GtkWidget*
+create_main_window()
 {
-  if (gtk_notebook_get_current_page (notebook) == 0) {
-    gtk_notebook_set_current_page (notebook, 1);
-  } else {
-    gtk_notebook_set_current_page (notebook, 0);
-  }
+  GError* error = NULL;
+  GtkWidget* window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_default_size (GTK_WINDOW (window), 600, 600);
+  gtk_widget_set_size_request (window, 570, 570);
+  gtk_window_set_title (GTK_WINDOW (window), "gWriter Blog");
+  gtk_container_set_border_width (GTK_CONTAINER (window), 0);
+  gtk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER);
+
+  gtk_window_set_icon_from_file (GTK_WINDOW (window), 
+                                 "/usr/share/icons/gwriterblog/favicon.png",
+                                 &error);
+
+  g_signal_connect (G_OBJECT (window), "delete_event",
+                    G_CALLBACK (gtk_main_quit), NULL);
+  return window;
 }
+

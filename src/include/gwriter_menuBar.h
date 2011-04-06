@@ -21,15 +21,26 @@
 *		WebSite: http://www.gwriterblog.org
 */
 
-#include <gtk/gtk.h>
-#include "include/gwriter.h"
+void
+windows_about();
 
 void
-switch_page (GtkButton* button, GtkNotebook* notebook)
-{
-  if (gtk_notebook_get_current_page (notebook) == 0) {
-    gtk_notebook_set_current_page (notebook, 1);
-  } else {
-    gtk_notebook_set_current_page (notebook, 0);
-  }
-}
+windows_adduser();
+
+void
+windows_setting();
+
+// Description: Creates and returns a Menu_Bar
+// Parameters: none
+GtkWidget*
+create_menu_bar();
+
+// Creates and returns a Menu from a Menu_Bar
+// Parameters: attached Menu_bar, menu Label
+GtkWidget*
+create_menu(GtkWidget* menuBar, const gchar* name);
+
+// Description: Creates and returns a Menu_Item from a Menu
+// Parameters: attached Menu, item Label, item Image
+GtkWidget*
+create_menu_item(GtkWidget* menu, const gchar* title, const gchar* imagePath);

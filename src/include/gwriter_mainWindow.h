@@ -24,4 +24,33 @@
 // Description: Creates and returns the main Window
 // Parameters: none
 GtkWidget*
-create_main_window();
+create_mainWindow();
+
+// Description: Creates and returns the menubar of the main Window
+// Parameters: none
+GtkWidget*
+create_mainWindow_menubar();
+
+// Description: Creates and returns the statusbar of the main Window
+// Parameters: none
+GtkWidget*
+create_mainWindow_statusbar();
+
+// Description: Creates and returns the toolbar of the main Window
+// Parameters: none
+GtkWidget*
+create_mainWindow_toolbar();
+
+// Description: sets the properties of the window
+// Parameters: the main window Widget
+void
+set_mainWindow_properties(GtkWidget*);
+
+void
+windows_about();
+
+void
+windows_adduser();
+
+void
+windows_setting();

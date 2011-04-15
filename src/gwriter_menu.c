@@ -20,31 +20,33 @@
 *		Twitter: @ptkdev / @gwriterblog_en
 *		WebSite: http://www.gwriterblog.org
 */
-// SuBMenu File
-  /* Fix Icons Linux
-   * gconftool-2 --type boolean --set /desktop/gnome/interface/buttons_have_icons true
-   * gconftool-2 --type boolean --set /desktop/gnome/interface/menus_have_icons true
-   *  */
+
 
 #include <gtk/gtk.h>
-#include <glib.h>
-#include <stdlib.h>
 
-#include "include/gwriter.h"
-#include "include/gwriter_mainWindow.h"
+#include "include/gwriter_menu.h"
 
-int main (int argc, char* argv[])
+GtkWidget*
+create_menu_item(GtkWidget* menu, const gchar* title, const gchar* imagePath  )
 {
-  gtk_init (&argc, &argv);
-
-  GError* error = NULL;
-
-  GtkWidget* window;
-
-  window = create_mainWindow();
+  GtkWidget* item = gtk_menu_item_new_with_label(title);
+  GtkWidget* image = gtk_image_new_from_file (imagePath);
   
-  gtk_widget_show_all (window);
-  gtk_main ();
-
-  return 0;
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
+  gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
+  
+  return item;
 }
+
+
+GtkWidget*
+create_menu(GtkWidget* menuBar, const gchar* name)
+{
+  GtkWidget* menu = gtk_menu_new();
+  GtkWidget* item = gtk_menu_item_new_with_label(name);
+  gtk_menu_item_set_submenu(GTK_MENU_ITEM(item), menu);
+  gtk_menu_shell_append(GTK_MENU_SHELL(menuBar), item);
+  
+  return menu;
+}
+

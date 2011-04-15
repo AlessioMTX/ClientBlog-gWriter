@@ -20,31 +20,13 @@
 *		Twitter: @ptkdev / @gwriterblog_en
 *		WebSite: http://www.gwriterblog.org
 */
-// SuBMenu File
-  /* Fix Icons Linux
-   * gconftool-2 --type boolean --set /desktop/gnome/interface/buttons_have_icons true
-   * gconftool-2 --type boolean --set /desktop/gnome/interface/menus_have_icons true
-   *  */
 
-#include <gtk/gtk.h>
-#include <glib.h>
-#include <stdlib.h>
+// Creates and returns a Menu from a Menu_Bar
+// Parameters: attached Menu_bar, menu Label
+GtkWidget*
+create_menu(GtkWidget* menuBar, const gchar* name);
 
-#include "include/gwriter.h"
-#include "include/gwriter_mainWindow.h"
-
-int main (int argc, char* argv[])
-{
-  gtk_init (&argc, &argv);
-
-  GError* error = NULL;
-
-  GtkWidget* window;
-
-  window = create_mainWindow();
-  
-  gtk_widget_show_all (window);
-  gtk_main ();
-
-  return 0;
-}
+// Description: Creates and returns a Menu_Item from a Menu
+// Parameters: attached Menu, item Label, item Image
+GtkWidget*
+create_menu_item(GtkWidget* menu, const gchar* title, const gchar* imagePath);

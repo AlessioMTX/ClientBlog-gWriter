@@ -37,8 +37,6 @@ int main (int argc, char* argv[])
 {
   gtk_init (&argc, &argv);
 
-  GError* error = NULL;
-
   GtkWidget* window;
 
   window = create_mainWindow();

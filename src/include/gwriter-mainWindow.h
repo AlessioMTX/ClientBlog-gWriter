@@ -1,3 +1,6 @@
+#ifndef GWRITER_MAINWINDOW_H
+#define GWRITER_MAINWINDOW_H
+
 /* 
 *	gWriterBlog - Blog Editor For Linux Desktop
 *		Copyright (C) 2011  PTKDev
@@ -54,3 +57,5 @@ windows_adduser();
 
 void
 windows_setting();
+
+#endif

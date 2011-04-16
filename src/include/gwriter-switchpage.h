@@ -1,3 +1,6 @@
+#ifndef GWRITER_SWITCHPAGE_H
+#define GWRITER_SWITCHPAGE_H
+
 /* 
 *	gWriterBlog - Blog Editor For Linux Desktop
 *		Copyright (C) 2011  PTKDev
@@ -23,3 +26,5 @@
 
 void
 switch_page (GtkButton* button, GtkNotebook* notebook);
+
+#endif

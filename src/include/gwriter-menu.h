@@ -1,3 +1,6 @@
+#ifndef GWRITER_MENU_H
+#define GWRITER_MENU_H
+
 /* 
 *	gWriterBlog - Blog Editor For Linux Desktop
 *		Copyright (C) 2011  PTKDev
@@ -30,3 +33,5 @@ create_menu(GtkWidget* menuBar, const gchar* name);
 // Parameters: attached Menu, item Label, item Image
 GtkWidget*
 create_menu_item(GtkWidget* menu, const gchar* title, const gchar* imagePath);
+
+#endif

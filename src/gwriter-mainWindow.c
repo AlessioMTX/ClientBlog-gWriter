@@ -23,9 +23,9 @@
 
 #include <gtk/gtk.h>
 
-#include "include/gwriter_mainWindow.h"
-#include "include/gwriter_menu.h"
-#include "include/gwriter.h"
+#include "include/gwriter-mainWindow.h"
+#include "include/gwriter-menu.h"
+#include "include/gwriter-switchpage.h"
 
 GtkWidget*
 create_mainWindow()

@@ -22,7 +22,7 @@
 */
 
 #include <gtk/gtk.h>
-#include "include/gwriter.h"
+#include "include/gwriter-switchpage.h"
 
 void
 switch_page (GtkButton* button, GtkNotebook* notebook)

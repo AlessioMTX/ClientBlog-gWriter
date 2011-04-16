@@ -25,7 +25,7 @@
 #include <glib.h>
 #include <stdlib.h>
 
-#include "include/gwriter_menu.h"
+#include "include/gwriter-menu.h"
 
 // Add User
 void windows_adduser()

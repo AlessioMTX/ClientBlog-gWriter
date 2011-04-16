@@ -28,10 +28,8 @@
 
 #include <gtk/gtk.h>
 #include <glib.h>
-#include <stdlib.h>
 
-#include "include/gwriter.h"
-#include "include/gwriter_mainWindow.h"
+#include "include/gwriter-mainWindow.h"
 
 int main (int argc, char* argv[])
 {

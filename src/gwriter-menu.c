@@ -24,7 +24,7 @@
 
 #include <gtk/gtk.h>
 
-#include "include/gwriter_menu.h"
+#include "include/gwriter-menu.h"
 
 GtkWidget*
 create_menu_item(GtkWidget* menu, const gchar* title, const gchar* imagePath  )

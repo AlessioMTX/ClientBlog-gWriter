@@ -25,8 +25,8 @@
 #include <glib.h>
 #include <stdlib.h>
 
-#include "include/gwriter.h"
-#include "include/gwriter_menu.h"
+#include "include/gwriter-switchpage.h"
+#include "include/gwriter-menu.h"
 
 // Setting
 void windows_setting()

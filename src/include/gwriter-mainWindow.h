@@ -24,38 +24,33 @@
 *		WebSite: http://www.gwriterblog.org
 */
 
-// Description: Creates and returns the main Window
-// Parameters: none
+
 GtkWidget*
 create_mainWindow();
 
-// Description: Creates and returns the menubar of the main Window
-// Parameters: none
 GtkWidget*
 create_mainWindow_menubar();
 
-// Description: Creates and returns the statusbar of the main Window
-// Parameters: none
 GtkWidget*
 create_mainWindow_statusbar();
 
-// Description: Creates and returns the toolbar of the main Window
-// Parameters: none
 GtkWidget*
 create_mainWindow_toolbar();
 
-// Description: sets the properties of the window
-// Parameters: the main window Widget
+void
+create_mainWindow_creditsDialog();
+
+void
+create_mainWindow_connectionDialog();
+
+void
+create_mainWindow_settingsDialog();
+
+
+
 void
 set_mainWindow_properties(GtkWidget*);
 
-void
-windows_about();
 
-void
-windows_adduser();
-
-void
-windows_setting();
 
 #endif

@@ -3,9 +3,9 @@ gWriterBlog_SOURCES = gwriter-main.c \
                       gwriter-switchpage.c \
                       gwriter-mainWindow.c \
                       gwriter-menu.c \
-                      gwriter-menubar-settingsWindow.c \
-                      gwriter-menubar-creditsWindow.c \
-                      gwriter-menubar-connectWindow.c \
+                      gwriter-mainWindow-settingsDialog.c \
+                      gwriter-mainWindow-creditsDialog.c \
+                      gwriter-mainWindow-connectionDialog.c \
                       include/gwriter-menu.h \
                       include/gwriter-mainWindow.h \
                       include/gwriter-switchpage.h

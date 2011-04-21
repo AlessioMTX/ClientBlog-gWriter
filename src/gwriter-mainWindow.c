@@ -160,17 +160,17 @@ create_mainWindow_menubar()
   
   menu = create_menu(menubar, "File");
   item = create_menu_item(menu, "New Blog", "/usr/share/icons/gwriterblog/add_user.png");
-  g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (windows_adduser), NULL);
+  g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (create_mainWindow_connectionDialog), NULL);
   
   item = create_menu_item(menu, "Setting",  "/usr/share/icons/gwriterblog/setting.png");
-  g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (windows_setting), NULL);
+  g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (create_mainWindow_settingsDialog), NULL);
   
   item = create_menu_item(menu, "Exit",     "/usr/share/icons/gwriterblog/close.png");
   g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (gtk_main_quit), NULL);
   
   menu = create_menu(menubar, "Help");
   item = create_menu_item(menu, "Info",     "/usr/share/icons/gwriterblog/star.png");
-  g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (windows_about), NULL);
+  g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (create_mainWindow_creditsDialog), NULL);
   
   return menubar;
 }

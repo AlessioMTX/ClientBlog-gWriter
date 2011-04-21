@@ -25,10 +25,11 @@
 #include <glib.h>
 #include <stdlib.h>
 
-#include "include/gwriter-menu.h"
+#include "include/gwriter-mainWindow.h"
 
 // Add User
-void windows_adduser()
+void
+create_mainWindow_connectionDialog()
 {
   //Inizializzazioni
   GtkWidget* window;

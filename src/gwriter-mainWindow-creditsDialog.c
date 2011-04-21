@@ -23,11 +23,11 @@
 
 #include <gtk/gtk.h>
 #include <glib.h>
-#include <stdlib.h>
 
-#include "include/gwriter-menu.h"
+#include "include/gwriter-mainWindow.h"
 
-void windows_about()
+void
+create_mainWindow_creditsDialog()
 {
   GdkPixbuf* pixbuf = gdk_pixbuf_new_from_file ("/usr/share/icons/gwriterblog/gwb_about.png", NULL);
   GtkWidget* dialog = gtk_about_dialog_new();

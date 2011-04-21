@@ -24,13 +24,9 @@
 *		WebSite: http://www.gwriterblog.org
 */
 
-// Creates and returns a Menu from a Menu_Bar
-// Parameters: attached Menu_bar, menu Label
 GtkWidget*
 create_menu(GtkWidget* menuBar, const gchar* name);
 
-// Description: Creates and returns a Menu_Item from a Menu
-// Parameters: attached Menu, item Label, item Image
 GtkWidget*
 create_menu_item(GtkWidget* menu, const gchar* title, const gchar* imagePath);
 

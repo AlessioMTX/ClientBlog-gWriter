@@ -22,6 +22,7 @@
 */
 
 #include <gtk/gtk.h>
+
 #include "include/gwriter-switchpage.h"
 
 void

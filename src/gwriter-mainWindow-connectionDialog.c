@@ -22,8 +22,6 @@
 */
 
 #include <gtk/gtk.h>
-#include <glib.h>
-#include <stdlib.h>
 
 #include "include/gwriter-mainWindow.h"
 

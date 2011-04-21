@@ -27,7 +27,6 @@
    *  */
 
 #include <gtk/gtk.h>
-#include <glib.h>
 
 #include "include/gwriter-mainWindow.h"
 
@@ -35,9 +34,7 @@ int main (int argc, char* argv[])
 {
   gtk_init (&argc, &argv);
 
-  GtkWidget* window;
-
-  window = create_mainWindow();
+  GtkWidget* window = create_mainWindow();
   
   gtk_widget_show_all (window);
   gtk_main ();

@@ -24,6 +24,8 @@
 *		WebSite: http://www.gwriterblog.org
 */
 
+#include <gtk/gtk.h>
+
 void
 switch_page (GtkButton* button, GtkNotebook* notebook);
 

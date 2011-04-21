@@ -24,6 +24,7 @@
 *		WebSite: http://www.gwriterblog.org
 */
 
+#include <gtk/gtk.h>
 
 GtkWidget*
 create_mainWindow();

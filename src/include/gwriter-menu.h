@@ -24,6 +24,8 @@
 *		WebSite: http://www.gwriterblog.org
 */
 
+#include <gtk/gtk.h>
+
 GtkWidget*
 create_menu(GtkWidget* menuBar, const gchar* name);
 

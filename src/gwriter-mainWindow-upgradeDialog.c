@@ -20,31 +20,56 @@
 *		Twitter: @ptkdev / @gwriterblog_en
 *		WebSite: http://www.gwriterblog.org
 */
-
+#define _GNU_SOURCE
 #include <gtk/gtk.h>
 
 #include "include/gwriter-mainWindow.h"
 
 void
-create_mainWindow_creditsDialog()
+create_mainWindow_upgradeDialog()
 {
-  GdkPixbuf* pixbuf = gdk_pixbuf_new_from_file ("/usr/share/icons/gwriterblog/gwb_about.png", NULL);
-  GtkWidget* dialog = gtk_about_dialog_new();
 
-  GError* error = NULL;
+	FILE* checkLatesVersion = NULL;
+	char bufferLatesVersion[10];
+	char *version = "0.1.1",
+		 *cmd = NULL;
+	
+	GtkWidget *window,
+			  *lastVersionMSG = gtk_label_new ("Last Version: "),
+		      *lastVersionCheck,
+			  *currentVersionMSG = gtk_label_new ("Current Version: "),
+			  *currentVersionCheck = gtk_label_new (version),
+			  *table = gtk_table_new (8, 10, TRUE),
+			  *button = gtk_button_new_with_label ("Close");
+			  
+	GError *error = NULL;
+    asprintf(&cmd, "%s%s", "wget -O /tmp/version.gwb http://www.gwriterblog.org/version.php?current=", version);
+    
+	system (cmd);
+	checkLatesVersion = fopen ("/tmp/version.gwb", "r");
+	fgets(bufferLatesVersion, 10, checkLatesVersion);
+	remove("/tmp/version.twc");
 
-  gtk_window_set_icon_from_file (GTK_WINDOW (dialog), "/usr/share/icons/gwriterblog/favicon.png", &error);
+	window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+	gtk_window_set_default_size (GTK_WINDOW(window), 240, 180);
+	gtk_widget_set_size_request (window, 240, 180);
+	gtk_window_set_title (GTK_WINDOW(window), "Check Updates");
+	gtk_container_set_border_width (GTK_CONTAINER (window), 0);
+	gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
+	gtk_window_set_icon_from_file (GTK_WINDOW(window), "/usr/share/icons/gwriterblog/upgrade.png", &error);
 
-  gtk_about_dialog_set_name (GTK_ABOUT_DIALOG (dialog), "gWriter Blog");
-  gtk_about_dialog_set_version (GTK_ABOUT_DIALOG (dialog), "");
-  gtk_about_dialog_set_copyright (GTK_ABOUT_DIALOG (dialog), "(c) PTKDev, Gaudo");
-  gtk_about_dialog_set_comments (GTK_ABOUT_DIALOG (dialog), "Basato su librerie GTK e semplicità!\n\nVersion: 0.1.1");
-  gtk_about_dialog_set_website (GTK_ABOUT_DIALOG (dialog), "http://www.gwriterblog.org/");
 
-  gtk_about_dialog_set_logo (GTK_ABOUT_DIALOG (dialog), pixbuf);
-  g_object_unref (pixbuf), pixbuf = NULL;
+	lastVersionCheck = gtk_label_new (bufferLatesVersion);
+	gtk_table_attach (GTK_TABLE (table), currentVersionMSG, 1, 6, 1, 2, GTK_FILL | GTK_EXPAND,GTK_FILL | GTK_EXPAND, 0, 0);
+	gtk_table_attach (GTK_TABLE (table), currentVersionCheck, 6, 9, 1, 2, GTK_FILL | GTK_EXPAND,GTK_FILL | GTK_EXPAND, 0, 0);
+	gtk_table_attach (GTK_TABLE (table), lastVersionMSG, 1, 5, 3, 4, GTK_FILL | GTK_EXPAND,GTK_FILL | GTK_EXPAND, 0, 0);
+	gtk_table_attach (GTK_TABLE (table), lastVersionCheck, 6, 9, 3, 4, GTK_FILL | GTK_EXPAND,GTK_FILL | GTK_EXPAND, 0, 0);
+	gtk_table_attach (GTK_TABLE (table), button, 1, 9, 5, 7, GTK_FILL | GTK_EXPAND,GTK_FILL | GTK_EXPAND, 0, 0);
+	g_signal_connect (G_OBJECT (button), "clicked",  G_CALLBACK (destroy_mainWindow_widget), G_OBJECT (window));
 
-  gtk_dialog_run (GTK_DIALOG (dialog) );
-  gtk_widget_destroy (dialog);
+	gtk_container_add (GTK_CONTAINER (window), table);
+
+	g_signal_connect (G_OBJECT (window), "delete_event",  G_CALLBACK (gtk_widget_destroy), NULL);
+	gtk_widget_show_all (window);
 
 }

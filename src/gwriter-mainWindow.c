@@ -170,7 +170,7 @@ create_mainWindow_menubar()
   
   menu = create_menu(menubar, "Help");
   item = create_menu_item(menu, "Updates",     "/usr/share/icons/gwriterblog/upgrade.png");
-  g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (create_mainWindow_creditsDialog()), NULL);
+  g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (create_mainWindow_upgradeDialog), NULL);
   
   item = create_menu_item(menu, "Info",     "/usr/share/icons/gwriterblog/star.png");
   g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (create_mainWindow_creditsDialog), NULL);
@@ -197,6 +197,11 @@ create_mainWindow_toolbar()
   gtk_toolbar_set_style (GTK_TOOLBAR (toolbar), GTK_TOOLBAR_ICONS);
   
   return toolbar;
+}
+
+void destroy_mainWindow_widget(GtkButton *button, gpointer widget)
+{
+	gtk_widget_destroy (GTK_WIDGET (widget));
 }
 
 

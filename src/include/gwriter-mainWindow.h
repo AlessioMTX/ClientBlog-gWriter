@@ -23,8 +23,9 @@
 *		Twitter: @ptkdev / @gwriterblog_en
 *		WebSite: http://www.gwriterblog.org
 */
-
 #include <gtk/gtk.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 GtkWidget*
 create_mainWindow();
@@ -42,6 +43,9 @@ void
 create_mainWindow_creditsDialog();
 
 void
+create_mainWindow_upgradeDialog();
+
+void
 create_mainWindow_connectionDialog();
 
 void
@@ -51,6 +55,11 @@ create_mainWindow_settingsDialog();
 
 void
 set_mainWindow_properties(GtkWidget*);
+
+
+
+void 
+destroy_mainWindow_widget(GtkButton*, gpointer);
 
 
 

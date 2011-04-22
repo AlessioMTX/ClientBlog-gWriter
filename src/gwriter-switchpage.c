@@ -20,7 +20,6 @@
 *		Twitter: @ptkdev / @gwriterblog_en
 *		WebSite: http://www.gwriterblog.org
 */
-
 #include <gtk/gtk.h>
 
 #include "include/gwriter-switchpage.h"

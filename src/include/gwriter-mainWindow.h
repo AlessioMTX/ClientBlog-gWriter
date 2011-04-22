@@ -27,7 +27,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define GWB_VERSION "0.1.85"
+#define GWB_VERSION "0.1.1"
 #define GWB_VERSION_STATUS "-Alpha"
 #define GWB_UPDATES_URL "http://www.gwriterblog.org/version.php"
 #define ICON_ABOUT ICONS_DIR"/gwb_about.png"

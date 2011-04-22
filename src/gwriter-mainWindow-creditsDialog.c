@@ -33,7 +33,7 @@ create_mainWindow_creditsDialog()
 
   GError* error = NULL;
 
-  gtk_window_set_icon_from_file (GTK_WINDOW (dialog), "/usr/share/icons/gwriterblog/favicon.png", &error);
+  gtk_window_set_icon_from_file (GTK_WINDOW (dialog), ICON_FAVICON, &error);
 
   gtk_about_dialog_set_name (GTK_ABOUT_DIALOG (dialog), "gWriter Blog");
   gtk_about_dialog_set_version (GTK_ABOUT_DIALOG (dialog), "");

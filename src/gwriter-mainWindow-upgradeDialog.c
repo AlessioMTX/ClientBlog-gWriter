@@ -31,21 +31,18 @@ create_mainWindow_upgradeDialog()
 
 	FILE* checkLatesVersion = NULL;
 	char bufferLatesVersion[10];
-	char *version = "0.1.1",
-		 *cmd = NULL;
 	
 	GtkWidget *window,
 			  *lastVersionMSG = gtk_label_new ("Last Version: "),
 		      *lastVersionCheck,
 			  *currentVersionMSG = gtk_label_new ("Current Version: "),
-			  *currentVersionCheck = gtk_label_new (version),
+			  *currentVersionCheck = gtk_label_new (GWB_VERSION),
 			  *table = gtk_table_new (8, 10, TRUE),
 			  *button = gtk_button_new_with_label ("Close");
 			  
 	GError *error = NULL;
-    asprintf(&cmd, "%s%s", "wget -O /tmp/version.gwb http://www.gwriterblog.org/version.php?current=", version);
     
-	system (cmd);
+	system ("wget -O /tmp/version.gwb "GWB_UPDATES_URL"?current="GWB_VERSION);
 	checkLatesVersion = fopen ("/tmp/version.gwb", "r");
 	fgets(bufferLatesVersion, 10, checkLatesVersion);
 	remove("/tmp/version.twc");
@@ -56,7 +53,7 @@ create_mainWindow_upgradeDialog()
 	gtk_window_set_title (GTK_WINDOW(window), "Check Updates");
 	gtk_container_set_border_width (GTK_CONTAINER (window), 0);
 	gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
-	gtk_window_set_icon_from_file (GTK_WINDOW(window), "/usr/share/icons/gwriterblog/upgrade.png", &error);
+	gtk_window_set_icon_from_file (GTK_WINDOW(window), ICON_UPGRADE, &error);
 
 
 	lastVersionCheck = gtk_label_new (bufferLatesVersion);

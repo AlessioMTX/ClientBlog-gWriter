@@ -50,7 +50,7 @@ create_mainWindow_settingsDialog()
   gtk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER);
 
 
-  gtk_window_set_icon_from_file (GTK_WINDOW (window), "/usr/share/icons/gwriterblog/favicon.png", &error);
+  gtk_window_set_icon_from_file (GTK_WINDOW (window), ICON_FAVICON, &error);
 
   notebook = gtk_notebook_new ();
   gtk_notebook_set_tab_pos (GTK_NOTEBOOK (notebook), GTK_POS_BOTTOM);

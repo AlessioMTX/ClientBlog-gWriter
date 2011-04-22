@@ -47,7 +47,7 @@ create_mainWindow_connectionDialog()
   gtk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER);
 
   // Dichiaro finestra: favicon
-  gtk_window_set_icon_from_file (GTK_WINDOW (window), "/usr/share/icons/gwriterblog/favicon.png", &error);
+  gtk_window_set_icon_from_file (GTK_WINDOW (window), ICON_FAVICON, &error);
 
   // Dichiaro autenticazione
   table = gtk_table_new (11, 10, TRUE);

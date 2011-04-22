@@ -1,0 +1,17 @@
+=========== Known Issues ===========		
+- gwriter-menu.c
+Not work menu-favicons (why?)
+
+- gwriter-mainWindow.c
+WARNING: ‘switch_page’ is used uninitialized in this function [-Wuninitialized]
+
+
+
+
+
+=========== Fixed Issues ===========	
+- Nothing
+
+
+
+

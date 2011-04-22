@@ -144,11 +144,12 @@ void set_mainWindow_properties(GtkWidget* window)
   gtk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER);
 
   gtk_window_set_icon_from_file (GTK_WINDOW (window), 
-                                 "/usr/share/icons/gwriterblog/favicon.png",
+                                 ICON_FAVICON,
                                  &error);
 
-  g_signal_connect (G_OBJECT (window), "delete_event",
-                    G_CALLBACK (gtk_main_quit), NULL);
+  g_signal_connect (window, "delete_event", G_CALLBACK (gtk_main_quit), NULL);
+  g_signal_connect (window, "destroy_mainWindow_widget", G_CALLBACK (gtk_main_quit), NULL); //fix: if run at console
+  
 }
 
 GtkWidget*
@@ -159,20 +160,20 @@ create_mainWindow_menubar()
   GtkWidget* item;
   
   menu = create_menu(menubar, "File");
-  item = create_menu_item(menu, "New Blog", "/usr/share/icons/gwriterblog/add-user.png");
+  item = create_menu_item(menu, "New Blog", ICON_ADDUSER);
   g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (create_mainWindow_connectionDialog), NULL);
   
-  item = create_menu_item(menu, "Setting",  "/usr/share/icons/gwriterblog/setting.png");
+  item = create_menu_item(menu, "Setting", ICON_SETTINGS);
   g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (create_mainWindow_settingsDialog), NULL);
   
-  item = create_menu_item(menu, "Exit",     "/usr/share/icons/gwriterblog/close.png");
+  item = create_menu_item(menu, "Exit", ICON_CLOSE);
   g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (gtk_main_quit), NULL);
   
   menu = create_menu(menubar, "Help");
-  item = create_menu_item(menu, "Updates",     "/usr/share/icons/gwriterblog/upgrade.png");
+  item = create_menu_item(menu, "Updates", ICON_UPGRADE);
   g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (create_mainWindow_upgradeDialog), NULL);
   
-  item = create_menu_item(menu, "Info",     "/usr/share/icons/gwriterblog/star.png");
+  item = create_menu_item(menu, "Info", ICON_STAR);
   g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (create_mainWindow_creditsDialog), NULL);
   
   return menubar;

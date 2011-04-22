@@ -1,6 +1,6 @@
 imgdir = /usr/share/icons/@PACKAGE@
 img_DATA= \
-	add_user.png \
+	add-user.png \
 	close.png \
 	favicon.png \
 	gwb_about.png \

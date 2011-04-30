@@ -10,7 +10,8 @@ gWriterBlog_SOURCES = gwriter-main.c \
                       include/gwriter-menu.h \
                       include/gwriter-mainWindow.h \
                       include/gwriter-switchpage.h
-gWriterBlog_LDADD = @gtk_LIBS@	
+gWriterBlog_LDADD = @gtk_LIBS@ @LIBCURL_LIBS@
+
 AM_CPPFLAGS = \
 	-DICONS_DIR=\""$(prefix)/share/icons/@PACKAGE@"\" \
 	@gtk_CFLAGS@ 

@@ -1,7 +1,3 @@
-#pragma once
-#ifndef GWRITER_MAINWINDOW_H
-#define GWRITER_MAINWINDOW_H
-
 /* 
 *	gWriterBlog - Blog Editor For Linux Desktop
 *		Copyright (C) 2011  PTKDev
@@ -24,49 +20,32 @@
 *		Twitter: @ptkdev / @gwriterblog_en
 *		WebSite: http://www.gwriterblog.org
 */
+
 #include <gtk/gtk.h>
 
+#include "include/gwriter-version.h"
 
-#define ICON_ABOUT ICONS_DIR"/gwb_about.png"
-#define ICON_SETTINGS ICONS_DIR"/setting.png"
-#define ICON_STAR ICONS_DIR"/star.png"
-#define ICON_ADDUSER ICONS_DIR"/add-user.png"
-#define ICON_FAVICON ICONS_DIR"/favicon.png"
-#define ICON_CLOSE ICONS_DIR"/close.png"
-#define ICON_UPGRADE ICONS_DIR"/upgrade.png"
+extern const gchar const* CURRENT_VERSION = "0.1.1";
+extern const gchar const* UPDATES_URL     = "http://www.gwriterblog.org/version.php";
 
-GtkWidget*
-create_mainWindow();
+gchar*
+get_latest_version()
+{
+  GError **error = NULL;
+	gchar* fileContents = NULL;
+	gboolean fileError;
 
-static GtkWidget*
-create_mainWindow_menubar();
+	gchar* updatesURL = g_strconcat("wget -O /tmp/version.gwb ", UPDATES_URL, "?current=", CURRENT_VERSION, NULL);
 
-static GtkWidget*
-create_mainWindow_statusbar();
+  system (updatesURL);
 
-static GtkWidget*
-create_mainWindow_toolbar();
+  fileError = g_file_get_contents("/tmp/version.gwb", &fileContents, NULL, error);
+  if(fileError)
+    printf("Error: Bad Alloc");
 
-void
-create_mainWindow_creditsDialog();
-
-void
-create_mainWindow_connectionDialog();
-
-void
-create_mainWindow_settingsDialog();
+ 
+  
+  return fileContents;
+}
 
 
-
-static void
-set_mainWindow_properties(GtkWidget*);
-
-
-
-
-void 
-destroy_mainWindow_widget(GtkButton*, GtkWidget*);
-
-
-
-#endif

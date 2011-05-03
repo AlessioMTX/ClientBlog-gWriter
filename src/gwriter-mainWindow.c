@@ -26,6 +26,8 @@
 #include "include/gwriter-mainWindow.h"
 #include "include/gwriter-menu.h"
 #include "include/gwriter-switchpage.h"
+#include "include/gwriter-updateWindow.h"
+
 
 GtkWidget*
 create_mainWindow()
@@ -134,7 +136,8 @@ create_mainWindow()
   return window;
 }
 
-void set_mainWindow_properties(GtkWidget* window)
+static void
+set_mainWindow_properties(GtkWidget* window)
 {
   GError* error = NULL;
   gtk_window_set_default_size (GTK_WINDOW (window), 600, 600);
@@ -152,7 +155,7 @@ void set_mainWindow_properties(GtkWidget* window)
   
 }
 
-GtkWidget*
+static GtkWidget*
 create_mainWindow_menubar()
 {
   GtkWidget* menubar = gtk_menu_bar_new();
@@ -171,7 +174,7 @@ create_mainWindow_menubar()
   
   menu = create_menu(menubar, "Help");
   item = create_menu_item(menu, "Updates", ICON_UPGRADE);
-  g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (create_mainWindow_upgradeDialog), NULL);
+  g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (create_updateWindow), NULL);
   
   item = create_menu_item(menu, "Info", ICON_STAR);
   g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (create_mainWindow_creditsDialog), NULL);
@@ -179,7 +182,7 @@ create_mainWindow_menubar()
   return menubar;
 }
 
-GtkWidget*
+static GtkWidget*
 create_mainWindow_statusbar()
 {
   GtkWidget* statusbar = gtk_statusbar_new ();
@@ -190,7 +193,7 @@ create_mainWindow_statusbar()
   return statusbar;
 }
 
-GtkWidget*
+static GtkWidget*
 create_mainWindow_toolbar()
 {
   GtkWidget* toolbar = gtk_toolbar_new ();
@@ -200,9 +203,9 @@ create_mainWindow_toolbar()
   return toolbar;
 }
 
-void destroy_mainWindow_widget(GtkButton *button, gpointer widget)
+void destroy_mainWindow_widget(GtkButton *button, GtkWidget* widget)
 {
-	gtk_widget_destroy (GTK_WIDGET (widget));
+	gtk_widget_destroy (widget);
 }
 
 

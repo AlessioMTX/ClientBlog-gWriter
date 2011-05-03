@@ -1,6 +1,6 @@
 #pragma once
-#ifndef GWRITER_MAINWINDOW_H
-#define GWRITER_MAINWINDOW_H
+#ifndef GWRITER_VERSION_H
+#define GWRITER_VERSION_H
 
 /* 
 *	gWriterBlog - Blog Editor For Linux Desktop
@@ -26,47 +26,11 @@
 */
 #include <gtk/gtk.h>
 
+extern const gchar const* CURRENT_VERSION;
+extern const gchar const* UPDATES_URL;
 
-#define ICON_ABOUT ICONS_DIR"/gwb_about.png"
-#define ICON_SETTINGS ICONS_DIR"/setting.png"
-#define ICON_STAR ICONS_DIR"/star.png"
-#define ICON_ADDUSER ICONS_DIR"/add-user.png"
-#define ICON_FAVICON ICONS_DIR"/favicon.png"
-#define ICON_CLOSE ICONS_DIR"/close.png"
-#define ICON_UPGRADE ICONS_DIR"/upgrade.png"
-
-GtkWidget*
-create_mainWindow();
-
-static GtkWidget*
-create_mainWindow_menubar();
-
-static GtkWidget*
-create_mainWindow_statusbar();
-
-static GtkWidget*
-create_mainWindow_toolbar();
-
-void
-create_mainWindow_creditsDialog();
-
-void
-create_mainWindow_connectionDialog();
-
-void
-create_mainWindow_settingsDialog();
-
-
-
-static void
-set_mainWindow_properties(GtkWidget*);
-
-
-
-
-void 
-destroy_mainWindow_widget(GtkButton*, GtkWidget*);
-
+gchar*
+get_latest_version();
 
 
 #endif

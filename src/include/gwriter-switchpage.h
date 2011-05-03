@@ -1,3 +1,4 @@
+#pragma once
 #ifndef GWRITER_SWITCHPAGE_H
 #define GWRITER_SWITCHPAGE_H
 

@@ -1,3 +1,4 @@
+#pragma once
 #ifndef GWRITER_MAINWINDOW_H
 #define GWRITER_MAINWINDOW_H
 
@@ -24,12 +25,8 @@
 *		WebSite: http://www.gwriterblog.org
 */
 #include <gtk/gtk.h>
-#include <stdio.h>
-#include <stdlib.h>
 
-#define GWB_VERSION "0.1.1"
-#define GWB_VERSION_STATUS "-Alpha"
-#define GWB_UPDATES_URL "http://www.gwriterblog.org/version.php"
+
 #define ICON_ABOUT ICONS_DIR"/gwb_about.png"
 #define ICON_SETTINGS ICONS_DIR"/setting.png"
 #define ICON_STAR ICONS_DIR"/star.png"
@@ -41,20 +38,17 @@
 GtkWidget*
 create_mainWindow();
 
-GtkWidget*
+static GtkWidget*
 create_mainWindow_menubar();
 
-GtkWidget*
+static GtkWidget*
 create_mainWindow_statusbar();
 
-GtkWidget*
+static GtkWidget*
 create_mainWindow_toolbar();
 
 void
 create_mainWindow_creditsDialog();
-
-void
-create_mainWindow_upgradeDialog();
 
 void
 create_mainWindow_connectionDialog();
@@ -64,13 +58,14 @@ create_mainWindow_settingsDialog();
 
 
 
-void
+static void
 set_mainWindow_properties(GtkWidget*);
 
 
 
+
 void 
-destroy_mainWindow_widget(GtkButton*, gpointer);
+destroy_mainWindow_widget(GtkButton*, GtkWidget*);
 
 
 

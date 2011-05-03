@@ -1,3 +1,4 @@
+#pragma once
 #ifndef GWRITER_MENU_H
 #define GWRITER_MENU_H
 

@@ -22,21 +22,12 @@
 */
 
 #include <gtk/gtk.h>
+#include "include/gwriter-images.h"
 
-#include "include/gwriter-version.h"
-#include "include/network-management.h"
-
-const gchar const* CURRENT_VERSION = "0.1.1";
-const gchar const* UPDATES_URL     = "http://www.gwriterblog.org/version.php";
-
-gchar*
-get_latest_version()
-{
-	gchar* fileContents = NULL;
-  
-  fileContents = get_fileContent_from_url(UPDATES_URL);
-  
-  return fileContents;
-}
-
-
+const gchar const* ICON_ABOUT    = "../img/gwb_about.png";
+const gchar const* ICON_SETTINGS = "../img/settings.png";
+const gchar const* ICON_STAR     = "../img/star.png";
+const gchar const* ICON_ADDUSER  = "../img/add-user.png";
+const gchar const* ICON_FAVICON  = "../img/favicon.png";
+const gchar const* ICON_CLOSE    = "../img/close.png";
+const gchar const* ICON_UPGRADE  = "../img/upgrade.png";

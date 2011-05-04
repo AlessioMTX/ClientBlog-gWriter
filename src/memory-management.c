@@ -20,23 +20,33 @@
 *		Twitter: @ptkdev / @gwriterblog_en
 *		WebSite: http://www.gwriterblog.org
 */
-
 #include <gtk/gtk.h>
 
-#include "include/gwriter-version.h"
-#include "include/network-management.h"
+#include "include/memory-management.h"
+#include "include/memory-debug.h"
 
-const gchar const* CURRENT_VERSION = "0.1.1";
-const gchar const* UPDATES_URL     = "http://www.gwriterblog.org/version.php";
-
-gchar*
-get_latest_version()
+gpointer
+malloc_space(gsize s)
 {
-	gchar* fileContents = NULL;
+  gpointer p;
   
-  fileContents = get_fileContent_from_url(UPDATES_URL);
+  p = g_malloc(s);
   
-  return fileContents;
+  N_LEAKED_ALLOCS++;
+  
+  return p;
 }
 
+void
+mdealloc_space(gpointer* p)
+{
+  if(N_LEAKED_ALLOCS == 0)
+    g_error("Error: Deallocating before allocating");
+  
+  if (p != NULL && *p != NULL) {  // safety check 
+    g_free(*p);                    // deallocate chunk 
+    *p = NULL;                   // reset original pointer 
+    N_LEAKED_ALLOCS--;                   
+  }
 
+}

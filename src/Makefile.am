@@ -7,12 +7,22 @@ gWriterBlog_SOURCES = gwriter-main.c \
                       gwriter-mainWindow-creditsDialog.c \
                       gwriter-updateWindow.c \
                       gwriter-version.c \
+                      gwriter-images.c \
                       gwriter-mainWindow-connectionDialog.c \
+                      network-management.c \
+                      memory-management.c \
+                      memory-debug.c \
+\
                       include/gwriter-menu.h \
                       include/gwriter-version.h \
                       include/gwriter-updateWindow.h \
                       include/gwriter-mainWindow.h \
-                      include/gwriter-switchpage.h
+                      include/gwriter-switchpage.h \
+                      include/gwriter-images.h \
+                      include/memory-management.h \
+                      include/network-management.h \
+                      include/memory-debug.h
+                      
 gWriterBlog_LDADD = @gtk_LIBS@ @LIBCURL_LIBS@
 
 AM_CPPFLAGS = \

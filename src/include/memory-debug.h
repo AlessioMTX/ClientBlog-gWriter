@@ -1,3 +1,7 @@
+#pragma once
+#ifndef MEMORY_DEBUG_H
+#define MEMORY_DEBUG_H
+
 /* 
 *	gWriterBlog - Blog Editor For Linux Desktop
 *		Copyright (C) 2011  PTKDev
@@ -23,20 +27,7 @@
 
 #include <gtk/gtk.h>
 
-#include "include/gwriter-version.h"
-#include "include/network-management.h"
 
-const gchar const* CURRENT_VERSION = "0.1.1";
-const gchar const* UPDATES_URL     = "http://www.gwriterblog.org/version.php";
+extern int N_LEAKED_ALLOCS;
 
-gchar*
-get_latest_version()
-{
-	gchar* fileContents = NULL;
-  
-  fileContents = get_fileContent_from_url(UPDATES_URL);
-  
-  return fileContents;
-}
-
-
+#endif

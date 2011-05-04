@@ -24,6 +24,7 @@
 #include <gtk/gtk.h>
 
 #include "include/gwriter-mainWindow.h"
+#include "include/gwriter-images.h"
 
 void
 create_mainWindow_creditsDialog()

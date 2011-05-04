@@ -1,3 +1,7 @@
+#pragma once
+#ifndef GWRITER_IMAGES_H
+#define GWRITER_IMAGES_H
+
 /* 
 *	gWriterBlog - Blog Editor For Linux Desktop
 *		Copyright (C) 2011  PTKDev
@@ -23,20 +27,12 @@
 
 #include <gtk/gtk.h>
 
-#include "include/gwriter-version.h"
-#include "include/network-management.h"
+extern const gchar const* ICON_ABOUT;
+extern const gchar const* ICON_SETTINGS;
+extern const gchar const* ICON_STAR;
+extern const gchar const* ICON_ADDUSER;
+extern const gchar const* ICON_FAVICON;
+extern const gchar const* ICON_CLOSE;
+extern const gchar const* ICON_UPGRADE;
 
-const gchar const* CURRENT_VERSION = "0.1.1";
-const gchar const* UPDATES_URL     = "http://www.gwriterblog.org/version.php";
-
-gchar*
-get_latest_version()
-{
-	gchar* fileContents = NULL;
-  
-  fileContents = get_fileContent_from_url(UPDATES_URL);
-  
-  return fileContents;
-}
-
-
+#endif

@@ -25,66 +25,70 @@
 
 #include "include/gwriter-updateWindow.h"
 #include "include/gwriter-version.h"
-
+#include "include/memory-management.h"
 
 void
 create_updateWindow()
 {
+  
   GtkWidget* window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-	GtkWidget* table  = gtk_table_new (8, 10, TRUE);
-	
-	GtkWidget* closeButton = gtk_button_new_with_label ("Close");
-	
-	set_updateWindow_properties(window);
+  GtkWidget* table  = gtk_table_new (8, 10, TRUE);
+  GtkWidget* closeButton = gtk_button_new_with_label ("Close");
+  
+  gchar* latest_version = NULL;
+  
+  set_updateWindow_properties(window);
 
-	gtk_table_attach (GTK_TABLE (table),
-	                  gtk_label_new ("Current Version: "),
-	                  1, 6, 1, 2,
-	                  GTK_FILL | GTK_EXPAND,
-	                  GTK_FILL | GTK_EXPAND,
-	                  0, 0);
-	                  
-	gtk_table_attach (GTK_TABLE (table),
-	                  gtk_label_new (CURRENT_VERSION),
-	                  6, 9, 1, 2,
-	                  GTK_FILL | GTK_EXPAND,
-	                  GTK_FILL | GTK_EXPAND,
-	                  0, 0);
-	                  
-	gtk_table_attach (GTK_TABLE (table),
+  gtk_table_attach (GTK_TABLE (table),
+                    gtk_label_new ("Current Version: "),
+                    1, 6, 1, 2,
+                    GTK_FILL | GTK_EXPAND,
+                    GTK_FILL | GTK_EXPAND,
+                    0, 0);
+                    
+  gtk_table_attach (GTK_TABLE (table),
+                    gtk_label_new (CURRENT_VERSION),
+                    6, 9, 1, 2,
+                    GTK_FILL | GTK_EXPAND,
+                    GTK_FILL | GTK_EXPAND,
+                    0, 0);
+                
+  gtk_table_attach (GTK_TABLE (table),
                     gtk_label_new ("Latest Version: "),
-	                  1, 5, 3, 4,
-	                  GTK_FILL | GTK_EXPAND,
-	                  GTK_FILL | GTK_EXPAND,
-	                  0, 0);
-	                  
-	gtk_table_attach (GTK_TABLE (table),
-	                  gtk_label_new (get_latest_version()),
-	                  6, 9, 3, 4,
-	                  GTK_FILL | GTK_EXPAND,
-	                  GTK_FILL | GTK_EXPAND,
-	                  0, 0);
-	                  
-	gtk_table_attach (GTK_TABLE (table),
-	                  closeButton,
-	                  1, 9, 5, 7,
-	                  GTK_FILL | GTK_EXPAND,
-	                  GTK_FILL | GTK_EXPAND,
-	                  0, 0);
-	                  
-	g_signal_connect (G_OBJECT (closeButton),
-	                  "clicked",
-	                  G_CALLBACK (gtk_widget_destroy),
-	                  GTK_WIDGET(window));
+                    1, 5, 3, 4,
+                    GTK_FILL | GTK_EXPAND,
+                    GTK_FILL | GTK_EXPAND,
+                    0, 0);
+  
+  latest_version = get_latest_version();                  
+  gtk_table_attach (GTK_TABLE (table),
+                    gtk_label_new (latest_version),
+                    6, 9, 3, 4,
+                    GTK_FILL | GTK_EXPAND,
+                    GTK_FILL | GTK_EXPAND,
+                    0, 0);
+  mdealloc_space(&latest_version);
+                    
+  gtk_table_attach (GTK_TABLE (table),
+                    closeButton,
+                    1, 9, 5, 7,
+                    GTK_FILL | GTK_EXPAND,
+                    GTK_FILL | GTK_EXPAND,
+                    0, 0);
+                    
+  g_signal_connect (G_OBJECT (closeButton),
+                    "clicked",
+                    G_CALLBACK (gtk_widget_destroy),
+                    GTK_WIDGET(window));
 
-	gtk_container_add (GTK_CONTAINER (window), table);
+  gtk_container_add (GTK_CONTAINER (window), table);
 
-	g_signal_connect (G_OBJECT (window),
-	                  "delete_event",
-	                  G_CALLBACK (gtk_widget_destroy),
-	                  window);
-	                  
-	gtk_widget_show_all (window);
+  g_signal_connect (G_OBJECT (window),
+                    "delete_event",
+                    G_CALLBACK (gtk_widget_destroy),
+                    window);
+                  
+  gtk_widget_show_all (window);
 
 }
 

@@ -25,6 +25,7 @@
 
 #include "include/gwriter-mainWindow.h"
 #include "include/gwriter-switchpage.h"
+#include "include/gwriter-images.h"
 
 
 // Setting

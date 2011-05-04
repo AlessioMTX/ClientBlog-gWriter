@@ -26,15 +26,6 @@
 */
 #include <gtk/gtk.h>
 
-
-#define ICON_ABOUT ICONS_DIR"/gwb_about.png"
-#define ICON_SETTINGS ICONS_DIR"/setting.png"
-#define ICON_STAR ICONS_DIR"/star.png"
-#define ICON_ADDUSER ICONS_DIR"/add-user.png"
-#define ICON_FAVICON ICONS_DIR"/favicon.png"
-#define ICON_CLOSE ICONS_DIR"/close.png"
-#define ICON_UPGRADE ICONS_DIR"/upgrade.png"
-
 GtkWidget*
 create_mainWindow();
 

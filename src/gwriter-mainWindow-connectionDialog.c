@@ -24,7 +24,7 @@
 #include <gtk/gtk.h>
 
 #include "include/gwriter-mainWindow.h"
-
+#include "include/gwriter-images.h"
 // Add User
 void
 create_mainWindow_connectionDialog()

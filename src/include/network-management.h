@@ -1,3 +1,7 @@
+#pragma once
+#ifndef NETWORK_MANAGEMENT_H
+#define NETWORK_MANAGEMENT_H
+
 /* 
 *	gWriterBlog - Blog Editor For Linux Desktop
 *		Copyright (C) 2011  PTKDev
@@ -23,20 +27,21 @@
 
 #include <gtk/gtk.h>
 
-#include "include/gwriter-version.h"
-#include "include/network-management.h"
+typedef struct MemoryStruct {
+  gchar* memory;
+  gsize size;
+} MemoryStruct;
 
-const gchar const* CURRENT_VERSION = "0.1.1";
-const gchar const* UPDATES_URL     = "http://www.gwriterblog.org/version.php";
 
+// Warning: After you call this function remember to free the pointer
+//          using the free_pointer() or mdeallocate_space() function located in
+//          "include/memory-functions.h"
 gchar*
-get_latest_version()
-{
-	gchar* fileContents = NULL;
-  
-  fileContents = get_fileContent_from_url(UPDATES_URL);
-  
-  return fileContents;
-}
+get_file_from_url(const gchar const*);
+
+static gsize
+write_to_memory(gpointer, gsize, gsize, gpointer);
 
 
+
+#endif

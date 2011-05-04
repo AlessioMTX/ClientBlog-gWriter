@@ -29,15 +29,20 @@
 #include <gtk/gtk.h>
 
 #include "include/gwriter-mainWindow.h"
+#include "include/memory-debug.h"
 
 int main (int argc, char* argv[])
 {
+
   gtk_init (&argc, &argv);
 
   GtkWidget* window = create_mainWindow();
   
   gtk_widget_show_all (window);
   gtk_main ();
+  
+  if(N_LEAKED_ALLOCS != 0)
+    g_error("POSSIBLE MEMORY LEAK! Check all malloc_space() and mdealloc_space() calls!");
 
   return 0;
 }

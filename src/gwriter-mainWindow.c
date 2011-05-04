@@ -27,6 +27,7 @@
 #include "include/gwriter-menu.h"
 #include "include/gwriter-switchpage.h"
 #include "include/gwriter-updateWindow.h"
+#include "include/gwriter-images.h"
 
 
 GtkWidget*

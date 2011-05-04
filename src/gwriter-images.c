@@ -1,7 +1,3 @@
-#pragma once
-#ifndef GWRITER_MAINWINDOW_H
-#define GWRITER_MAINWINDOW_H
-
 /* 
 *	gWriterBlog - Blog Editor For Linux Desktop
 *		Copyright (C) 2011  PTKDev
@@ -24,40 +20,14 @@
 *		Twitter: @ptkdev / @gwriterblog_en
 *		WebSite: http://www.gwriterblog.org
 */
+
 #include <gtk/gtk.h>
+#include "include/gwriter-images.h"
 
-GtkWidget*
-create_mainWindow();
-
-static GtkWidget*
-create_mainWindow_menubar();
-
-static GtkWidget*
-create_mainWindow_statusbar();
-
-static GtkWidget*
-create_mainWindow_toolbar();
-
-void
-create_mainWindow_creditsDialog();
-
-void
-create_mainWindow_connectionDialog();
-
-void
-create_mainWindow_settingsDialog();
-
-
-
-static void
-set_mainWindow_properties(GtkWidget*);
-
-
-
-
-void 
-destroy_mainWindow_widget(GtkButton*, GtkWidget*);
-
-
-
-#endif
+const gchar const* ICON_ABOUT    = "../img/gwb_about.png";
+const gchar const* ICON_SETTINGS = "../img/settings.png";
+const gchar const* ICON_STAR     = "../img/star.png";
+const gchar const* ICON_ADDUSER  = "../img/add-user.png";
+const gchar const* ICON_FAVICON  = "../img/favicon.png";
+const gchar const* ICON_CLOSE    = "../img/close.png";
+const gchar const* ICON_UPGRADE  = "../img/upgrade.png";

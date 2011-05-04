@@ -1,6 +1,6 @@
 #pragma once
-#ifndef GWRITER_MAINWINDOW_H
-#define GWRITER_MAINWINDOW_H
+#ifndef GWRITER_IMAGES_H
+#define GWRITER_IMAGES_H
 
 /* 
 *	gWriterBlog - Blog Editor For Linux Desktop
@@ -24,40 +24,15 @@
 *		Twitter: @ptkdev / @gwriterblog_en
 *		WebSite: http://www.gwriterblog.org
 */
+
 #include <gtk/gtk.h>
 
-GtkWidget*
-create_mainWindow();
-
-static GtkWidget*
-create_mainWindow_menubar();
-
-static GtkWidget*
-create_mainWindow_statusbar();
-
-static GtkWidget*
-create_mainWindow_toolbar();
-
-void
-create_mainWindow_creditsDialog();
-
-void
-create_mainWindow_connectionDialog();
-
-void
-create_mainWindow_settingsDialog();
-
-
-
-static void
-set_mainWindow_properties(GtkWidget*);
-
-
-
-
-void 
-destroy_mainWindow_widget(GtkButton*, GtkWidget*);
-
-
+extern const gchar const* ICON_ABOUT;
+extern const gchar const* ICON_SETTINGS;
+extern const gchar const* ICON_STAR;
+extern const gchar const* ICON_ADDUSER;
+extern const gchar const* ICON_FAVICON;
+extern const gchar const* ICON_CLOSE;
+extern const gchar const* ICON_UPGRADE;
 
 #endif

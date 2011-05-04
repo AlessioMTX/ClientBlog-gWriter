@@ -21,22 +21,4 @@
 *		WebSite: http://www.gwriterblog.org
 */
 
-#include <gtk/gtk.h>
-
-#include "include/gwriter-version.h"
-#include "include/network-management.h"
-
-const gchar const* CURRENT_VERSION = "0.1.1";
-const gchar const* UPDATES_URL     = "http://www.gwriterblog.org/version.php";
-
-gchar*
-get_latest_version()
-{
-	gchar* fileContents = NULL;
-  
-  fileContents = get_fileContent_from_url(UPDATES_URL);
-  
-  return fileContents;
-}
-
-
+extern int N_LEAKED_ALLOCS = 0;

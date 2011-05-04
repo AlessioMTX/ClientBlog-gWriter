@@ -1,3 +1,7 @@
+#pragma once
+#ifndef MEMORY_MANAGEMENT_H
+#define MEMORY_MANAGEMENT_H
+
 /* 
 *	gWriterBlog - Blog Editor For Linux Desktop
 *		Copyright (C) 2011  PTKDev
@@ -23,20 +27,10 @@
 
 #include <gtk/gtk.h>
 
-#include "include/gwriter-version.h"
-#include "include/network-management.h"
+gpointer
+malloc_space(gsize);
 
-const gchar const* CURRENT_VERSION = "0.1.1";
-const gchar const* UPDATES_URL     = "http://www.gwriterblog.org/version.php";
+void
+mdealloc_space(gpointer*);
 
-gchar*
-get_latest_version()
-{
-	gchar* fileContents = NULL;
-  
-  fileContents = get_fileContent_from_url(UPDATES_URL);
-  
-  return fileContents;
-}
-
-
+#endif

@@ -44,10 +44,6 @@ create_mainWindow_creditsDialog();
 void
 create_mainWindow_connectionDialog();
 
-void
-create_mainWindow_settingsDialog();
-
-
 
 static void
 set_mainWindow_properties(GtkWidget*);

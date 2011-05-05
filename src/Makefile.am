@@ -3,7 +3,6 @@ gWriterBlog_SOURCES = gwriter-main.c \
                       gwriter-switchpage.c \
                       gwriter-mainWindow.c \
                       gwriter-menu.c \
-                      gwriter-mainWindow-settingsDialog.c \
                       gwriter-mainWindow-creditsDialog.c \
                       gwriter-updateWindow.c \
                       gwriter-version.c \

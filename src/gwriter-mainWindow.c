@@ -165,7 +165,8 @@ create_mainWindow_menubar()
   
   menu = create_menu(menubar, "File");
   item = create_menu_item(menu, "New Blog", ICON_ADDUSER);
-  g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (create_mainWindow_connectionDialog), NULL);
+  
+  item = create_menu_item(menu, "Settings", ICON_ADDUSER);
   
   item = create_menu_item(menu, "Exit", ICON_CLOSE);
   g_signal_connect (G_OBJECT (item), "activate", G_CALLBACK (gtk_main_quit), NULL);

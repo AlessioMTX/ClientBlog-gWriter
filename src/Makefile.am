@@ -7,7 +7,6 @@ gWriterBlog_SOURCES = gwriter-main.c \
                       gwriter-updateWindow.c \
                       gwriter-version.c \
                       gwriter-images.c \
-                      gwriter-mainWindow-connectionDialog.c \
                       network-management.c \
                       memory-management.c \
                       memory-debug.c \

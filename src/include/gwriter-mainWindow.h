@@ -38,11 +38,8 @@ create_mainWindow_statusbar();
 static GtkWidget*
 create_mainWindow_toolbar();
 
-void
+static void
 create_mainWindow_creditsDialog();
-
-void
-create_mainWindow_connectionDialog();
 
 
 static void

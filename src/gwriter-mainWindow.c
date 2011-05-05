@@ -138,7 +138,7 @@ create_mainWindow()
 }
 
 static void
-set_mainWindow_properties(GtkWidget* window)
+set_properties(GtkWidget* window)
 {
   GError* error = NULL;
   gtk_window_set_default_size (GTK_WINDOW (window), 600, 600);
@@ -157,7 +157,7 @@ set_mainWindow_properties(GtkWidget* window)
 }
 
 static GtkWidget*
-create_mainWindow_menubar()
+create_menubar()
 {
   GtkWidget* menubar = gtk_menu_bar_new();
   GtkWidget* menu;
@@ -182,7 +182,7 @@ create_mainWindow_menubar()
 }
 
 static GtkWidget*
-create_mainWindow_statusbar()
+create_statusbar()
 {
   GtkWidget* statusbar = gtk_statusbar_new ();
   
@@ -193,7 +193,7 @@ create_mainWindow_statusbar()
 }
 
 static GtkWidget*
-create_mainWindow_toolbar()
+create_toolbar()
 {
   GtkWidget* toolbar = gtk_toolbar_new ();
  
@@ -202,9 +202,29 @@ create_mainWindow_toolbar()
   return toolbar;
 }
 
-void destroy_mainWindow_widget(GtkButton *button, GtkWidget* widget)
+static void
+create_creditsDialog()
 {
-	gtk_widget_destroy (widget);
+  GdkPixbuf* pixbuf = gdk_pixbuf_new_from_file ("/usr/share/icons/gwriterblog/gwb_about.png", NULL);
+  GtkWidget* dialog = gtk_about_dialog_new();
+
+  GError* error = NULL;
+
+  gtk_window_set_icon_from_file (GTK_WINDOW (dialog), ICON_FAVICON, &error);
+
+  gtk_about_dialog_set_name (GTK_ABOUT_DIALOG (dialog), "gWriter Blog");
+  gtk_about_dialog_set_version (GTK_ABOUT_DIALOG (dialog), "");
+  gtk_about_dialog_set_copyright (GTK_ABOUT_DIALOG (dialog), "(c) PTKDev, Gaudo");
+  gtk_about_dialog_set_comments (GTK_ABOUT_DIALOG (dialog), "Basato su librerie GTK e semplicità!\n\nVersion: 0.1.1");
+  gtk_about_dialog_set_website (GTK_ABOUT_DIALOG (dialog), "http://www.gwriterblog.org/");
+
+  gtk_about_dialog_set_logo (GTK_ABOUT_DIALOG (dialog), pixbuf);
+  g_object_unref (pixbuf), pixbuf = NULL;
+
+  gtk_dialog_run (GTK_DIALOG (dialog) );
+  gtk_widget_destroy (dialog);
+
 }
+
 
 

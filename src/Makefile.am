@@ -1,9 +1,7 @@
 bin_PROGRAMS = gWriterBlog
 gWriterBlog_SOURCES = gwriter-main.c \
-                      gwriter-switchpage.c \
                       gwriter-mainWindow.c \
                       gwriter-menu.c \
-                      gwriter-mainWindow-creditsDialog.c \
                       gwriter-updateWindow.c \
                       gwriter-version.c \
                       gwriter-images.c \
@@ -15,7 +13,6 @@ gWriterBlog_SOURCES = gwriter-main.c \
                       include/gwriter-version.h \
                       include/gwriter-updateWindow.h \
                       include/gwriter-mainWindow.h \
-                      include/gwriter-switchpage.h \
                       include/gwriter-images.h \
                       include/memory-management.h \
                       include/network-management.h \

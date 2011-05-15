@@ -55,7 +55,7 @@ dealloc(gpointer* p)
     g_free(*p);                    // deallocate chunk 
     *p = NULL;                   // reset original pointer                  
   } else {
-    g_warning("something strange happened while allocating memory..");
+    g_warning("something strange happened while deallocating memory..");
   }
 
 }

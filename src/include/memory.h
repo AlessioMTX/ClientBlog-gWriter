@@ -1,3 +1,7 @@
+#pragma once
+#ifndef MEMORY_H
+#define MEMORY_H
+
 /* 
 *	gWriterBlog - Blog Editor For Linux Desktop
 *		Copyright (C) 2011  PTKDev
@@ -21,4 +25,14 @@
 *		WebSite: http://www.gwriterblog.org
 */
 
-extern int N_LEAKED_ALLOCS = 0;
+#include <gtk/gtk.h>
+
+gpointer
+alloc(gsize);
+
+void
+dealloc(gpointer*);
+
+gint
+DEBUG_get_nAllocatedObjects();
+#endif

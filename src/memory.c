@@ -1,7 +1,3 @@
-#pragma once
-#ifndef MEMORY_DEBUG_H
-#define MEMORY_DEBUG_H
-
 /* 
 *	gWriterBlog - Blog Editor For Linux Desktop
 *		Copyright (C) 2011  PTKDev
@@ -24,10 +20,48 @@
 *		Twitter: @ptkdev / @gwriterblog_en
 *		WebSite: http://www.gwriterblog.org
 */
-
 #include <gtk/gtk.h>
 
+#include "include/memory.h"
 
-extern int N_LEAKED_ALLOCS;
 
-#endif
+static gint nAllocatedObjects = 0;
+
+gpointer
+alloc(gsize s)
+{
+  gpointer p;
+  
+  g_debug("allocating memory");
+  p = g_malloc(s);
+ 
+  if(p == NULL)
+    g_error("Out of memory!");
+  
+  nAllocatedObjects++;
+  
+  return p;
+}
+
+void
+dealloc(gpointer* p)
+{
+  if(nAllocatedObjects <= 0)
+    g_error("No allocated objects to deallocate!");
+    
+  if (p != NULL && *p != NULL) {  // safety check 
+    g_debug("freeing memory");
+    nAllocatedObjects--;
+    g_free(*p);                    // deallocate chunk 
+    *p = NULL;                   // reset original pointer                  
+  } else {
+    g_warning("something strange happened while allocating memory..");
+  }
+
+}
+
+gint
+DEBUG_get_nAllocatedObjects()
+{
+  return nAllocatedObjects;
+}

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef GWRITER_SWITCHPAGE_H
-#define GWRITER_SWITCHPAGE_H
+#ifndef NETWORK_H
+#define NETWORK_H
 
 /* 
 *	gWriterBlog - Blog Editor For Linux Desktop
@@ -27,7 +27,18 @@
 
 #include <gtk/gtk.h>
 
+typedef struct MemoryStruct {
+  gchar* memory;
+  gsize size;
+} MemoryStruct;
+
+
+// Warning: After you call this function remember to free the pointer
+//          using the free_pointer() or mdeallocate_space() function located in
+//          "include/memory-functions.h"
 void
-switch_page (GtkButton* button, GtkNotebook* notebook);
+get_fileContents_from_url(gchar*, const gchar const*);
+
+
 
 #endif

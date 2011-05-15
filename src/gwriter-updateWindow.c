@@ -25,7 +25,10 @@
 
 #include "include/gwriter-updateWindow.h"
 #include "include/gwriter-version.h"
-#include "include/memory-management.h"
+#include "include/memory.h"
+
+static void
+set_properties(GtkWidget*);
 
 void
 create_updateWindow()
@@ -35,9 +38,9 @@ create_updateWindow()
   GtkWidget* table  = gtk_table_new (8, 10, TRUE);
   GtkWidget* closeButton = gtk_button_new_with_label ("Close");
   
-  gchar* latest_version = NULL;
+  gchar* latestVersionString = NULL;
   
-  set_updateWindow_properties(window);
+  set_properties(window);
 
   gtk_table_attach (GTK_TABLE (table),
                     gtk_label_new ("Current Version: "),
@@ -60,14 +63,17 @@ create_updateWindow()
                     GTK_FILL | GTK_EXPAND,
                     0, 0);
   
-  latest_version = get_latest_version();                  
+  
+  latestVersionString = alloc(1);
+  get_latestVersion(latestVersionString);
+
   gtk_table_attach (GTK_TABLE (table),
-                    gtk_label_new (latest_version),
+                    gtk_label_new (latestVersionString),
                     6, 9, 3, 4,
                     GTK_FILL | GTK_EXPAND,
                     GTK_FILL | GTK_EXPAND,
                     0, 0);
-  mdealloc_space(&latest_version);
+  dealloc((gpointer*)&latestVersionString);
                     
   gtk_table_attach (GTK_TABLE (table),
                     closeButton,
@@ -93,10 +99,8 @@ create_updateWindow()
 }
 
 static void
-set_updateWindow_properties(GtkWidget* window)
+set_properties(GtkWidget* window)
 {
-  GError *error = NULL;
-	
 	gtk_window_set_default_size (GTK_WINDOW(window), 240, 180);
 	gtk_widget_set_size_request (window, 240, 180);
 	gtk_window_set_title (GTK_WINDOW(window), "Check Updates");

@@ -1,3 +1,7 @@
+#pragma once
+#ifndef MEMORY_H
+#define MEMORY_H
+
 /* 
 *	gWriterBlog - Blog Editor For Linux Desktop
 *		Copyright (C) 2011  PTKDev
@@ -20,16 +24,15 @@
 *		Twitter: @ptkdev / @gwriterblog_en
 *		WebSite: http://www.gwriterblog.org
 */
+
 #include <gtk/gtk.h>
 
-#include "include/gwriter-switchpage.h"
+gpointer
+alloc(gsize);
 
 void
-switch_page (GtkButton* button, GtkNotebook* notebook)
-{
-  if (gtk_notebook_get_current_page (notebook) == 0) {
-    gtk_notebook_set_current_page (notebook, 1);
-  } else {
-    gtk_notebook_set_current_page (notebook, 0);
-  }
-}
+dealloc(gpointer*);
+
+gint
+DEBUG_get_nAllocatedObjects();
+#endif

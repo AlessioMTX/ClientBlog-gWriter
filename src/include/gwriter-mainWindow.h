@@ -29,35 +29,4 @@
 GtkWidget*
 create_mainWindow();
 
-static GtkWidget*
-create_mainWindow_menubar();
-
-static GtkWidget*
-create_mainWindow_statusbar();
-
-static GtkWidget*
-create_mainWindow_toolbar();
-
-void
-create_mainWindow_creditsDialog();
-
-void
-create_mainWindow_connectionDialog();
-
-void
-create_mainWindow_settingsDialog();
-
-
-
-static void
-set_mainWindow_properties(GtkWidget*);
-
-
-
-
-void 
-destroy_mainWindow_widget(GtkButton*, GtkWidget*);
-
-
-
 #endif

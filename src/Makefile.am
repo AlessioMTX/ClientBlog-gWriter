@@ -1,27 +1,20 @@
 bin_PROGRAMS = gWriterBlog
 gWriterBlog_SOURCES = gwriter-main.c \
-                      gwriter-switchpage.c \
                       gwriter-mainWindow.c \
                       gwriter-menu.c \
-                      gwriter-mainWindow-settingsDialog.c \
-                      gwriter-mainWindow-creditsDialog.c \
                       gwriter-updateWindow.c \
                       gwriter-version.c \
                       gwriter-images.c \
-                      gwriter-mainWindow-connectionDialog.c \
-                      network-management.c \
-                      memory-management.c \
-                      memory-debug.c \
+                      network.c \
+                      memory.c \
 \
                       include/gwriter-menu.h \
                       include/gwriter-version.h \
                       include/gwriter-updateWindow.h \
                       include/gwriter-mainWindow.h \
-                      include/gwriter-switchpage.h \
                       include/gwriter-images.h \
-                      include/memory-management.h \
-                      include/network-management.h \
-                      include/memory-debug.h
+                      include/memory.h \
+                      include/network.h 
                       
 gWriterBlog_LDADD = @gtk_LIBS@ @LIBCURL_LIBS@
 

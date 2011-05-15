@@ -26,9 +26,6 @@
 */
 #include <gtk/gtk.h>
 
-static void
-set_updateWindow_properties(GtkWidget*);
-
 void
 create_updateWindow();
 

@@ -27,9 +27,9 @@
 #include "include/gwriter-menu.h"
 
 GtkWidget*
-create_menu_item(GtkWidget* menu, const gchar* title, const gchar* imagePath  )
+create_menu_item(GtkWidget* menu, const gchar const* title, const gchar const* imagePath  )
 {
-  GtkWidget* item = gtk_menu_item_new_with_label(title);
+  GtkWidget* item = gtk_image_menu_item_new_with_label(title);
   GtkWidget* image = gtk_image_new_from_file (imagePath);
   
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
@@ -40,7 +40,7 @@ create_menu_item(GtkWidget* menu, const gchar* title, const gchar* imagePath  )
 
 
 GtkWidget*
-create_menu(GtkWidget* menuBar, const gchar* name)
+create_menu(GtkWidget* menuBar, const gchar const* name)
 {
   GtkWidget* menu = gtk_menu_new();
   GtkWidget* item = gtk_menu_item_new_with_label(name);

@@ -33,8 +33,8 @@ extern const gchar const* UPDATES_URL;
 // Warning: After you call this function remember to free the pointer
 //          using the free_pointer() or mdeallocate_space() function located in
 //          "include/memory-functions.h"
-gchar*
-get_latest_version();
+void
+get_latestVersion(gchar*);
 
 
 #endif

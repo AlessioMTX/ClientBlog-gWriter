@@ -29,21 +29,4 @@
 GtkWidget*
 create_mainWindow();
 
-static GtkWidget*
-create_mainWindow_menubar();
-
-static GtkWidget*
-create_statusbar();
-
-static GtkWidget*
-create_toolbar();
-
-static void
-create_creditsDialog();
-
-
-static void
-set_properties(GtkWidget*);
-
-
 #endif

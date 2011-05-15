@@ -24,19 +24,15 @@
 #include <gtk/gtk.h>
 
 #include "include/gwriter-version.h"
-#include "include/network-management.h"
+#include "include/network.h"
 
 const gchar const* CURRENT_VERSION = "0.1.1";
 const gchar const* UPDATES_URL     = "http://www.gwriterblog.org/version.php";
 
-gchar*
-get_latest_version()
+void
+get_latestVersion(gchar* p)
 {
-	gchar* fileContents = NULL;
-  
-  fileContents = get_fileContent_from_url(UPDATES_URL);
-  
-  return fileContents;
+  get_fileContents_from_url(p, UPDATES_URL); 
 }
 
 

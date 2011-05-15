@@ -28,9 +28,9 @@
 #include <gtk/gtk.h>
 
 GtkWidget*
-create_menu(GtkWidget* menuBar, const gchar* name);
+create_menu(GtkWidget* menuBar, const gchar const* name);
 
 GtkWidget*
-create_menu_item(GtkWidget* menu, const gchar* title, const gchar* imagePath);
+create_menu_item(GtkWidget* menu, const gchar const* title, const gchar const* imagePath);
 
 #endif

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef MEMORY_MANAGEMENT_H
-#define MEMORY_MANAGEMENT_H
+#ifndef NETWORK_H
+#define NETWORK_H
 
 /* 
 *	gWriterBlog - Blog Editor For Linux Desktop
@@ -27,10 +27,18 @@
 
 #include <gtk/gtk.h>
 
-gpointer
-malloc_space(gsize);
+typedef struct MemoryStruct {
+  gchar* memory;
+  gsize size;
+} MemoryStruct;
 
+
+// Warning: After you call this function remember to free the pointer
+//          using the free_pointer() or mdeallocate_space() function located in
+//          "include/memory-functions.h"
 void
-mdealloc_space(gpointer*);
+get_fileContents_from_url(gchar*, const gchar const*);
+
+
 
 #endif

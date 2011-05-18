@@ -1,41 +1,37 @@
-/** 
- * Ubuntu/Debian Essential Packages (libs)
- */
-
+============= Ubuntu/Debian Essential Packages (libs) ============= 
 $ apt-get update
 $ apt-get install build-essential libgtk2.0 libgtk2.0-dev xmlrpc-c
 
 
-/**
- * Archlinux Essential Packages (libs)
- */
 
+
+============= Archlinux Essential Packages (libs) ============= 
 $ pacman -Syu
 $ pacman -S base-devel xmlrpc-c
 
 
-/**
- * Compile (from Shell)
- */ 
 
+============= Compile (from Shell) ============= 
 $ gcc -Wall -DICONS_DIR=\""../img"\" -o gwriter gwriter-main.c gwriter-mainWindow.c gwriter-mainWindow-connectionDialog.c gwriter-mainWindow-creditsDialog.c gwriter-mainWindow-settingsDialog.c gwriter-mainWindow-upgradeDialog.c gwriter-menu.c gwriter-switchpage.c include/gwriter-menu.h include/gwriter-switchpage.h include/gwriter-mainWindow.h `pkg-config --cflags --libs gtk+-2.0`
 
 
 
-/**
- * Compile (With Geany IDE)
- */
-
+============= Compile (With Geany IDE) ============= 
 1) Choose more build actions
 2) Set build menu commands
 3) gcc -Wall -DICONS_DIR=\""../img"\" -o gwriter gwriter-main.c gwriter-mainWindow.c gwriter-mainWindow-connectionDialog.c gwriter-mainWindow-creditsDialog.c gwriter-mainWindow-settingsDialog.c gwriter-mainWindow-upgradeDialog.c gwriter-menu.c gwriter-switchpage.c include/gwriter-menu.h include/gwriter-switchpage.h include/gwriter-mainWindow.h `pkg-config --cflags --libs gtk+-2.0`
 
 
-/**
- * Autoconfig & AutoMake
- */
 
+
+============= Autoconfig & AutoMake ============= 
 $ autoreconf --install
 
 $ ./configure
 $ make
+
+
+
+============= SUPPORT ============= 
+IRC: chat.freenode.net at #teamgwb
+
